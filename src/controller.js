@@ -27,7 +27,7 @@ module.exports = {
 
             return input;
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return error;
         }
 

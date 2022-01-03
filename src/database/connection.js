@@ -3,6 +3,7 @@ const configuration = require('../../knexfile');
 
 require('dotenv/config');
 
+
 const environment = process.env.ENVIRONMENT;
 
 if (environment == 'development') {
@@ -11,6 +12,5 @@ if (environment == 'development') {
   module.exports = connection;
 } else {
   const connection = knex(configuration.production);
-
   module.exports = connection;
 }

@@ -4,35 +4,37 @@ const credentials = require("../credentials.json")
 
 //buscando 
 
-async function getSheetData() {
+// async function getSheetData() {
 
-    const docId = '1FlXToLYL0W-EVvawsKNI1DJlnQ8dxkC-C62vRdSc1VE'
-    //setando id da planilha aser utilizada
-    const doc = new GoogleSpreadsheet(docId)
-    //autenticando no google
-    await doc.useServiceAccountAuth(credentials)
+//     const docId = '1FlXToLYL0W-EVvawsKNI1DJlnQ8dxkC-C62vRdSc1VE'
+//     //setando id da planilha aser utilizada
+//     const doc = new GoogleSpreadsheet(docId)
+//     //autenticando no google
+//     await doc.useServiceAccountAuth(credentials)
 
-    // carrego as informações da planilha
-    await doc.loadInfo();
+//     // carrego as informações da planilha
+//     await doc.loadInfo();
 
-    //Seleciono a aba (pelo indice da mesma)
-    const worksheet = doc.sheetsByIndex[0]
+//     //Seleciono a aba (pelo indice da mesma)
+//     const worksheet = doc.sheetsByIndex[0]
 
-    //captura as linhas da planilha
-    const rows = await worksheet.getRows();
+//     //captura as linhas da planilha
+//     const rows = await worksheet.getRows();
 
-    rows.map(row => {
-        console.log(row);
-    })
+//     rows.map(row => {
+//         console.log(row);
+//     })
 
 
-}
+// }
 
-getSheetData();
+// getSheetData();
 
 async function executeAll() {
 
     const apiData = await handle()
+
+    console.log(apiData);
 
     console.time("Tempo")
 
@@ -49,9 +51,6 @@ async function executeAll() {
     let dataObj2 = xlsx.utils.sheet_to_json(obj2);
     let dataObj3 = xlsx.utils.sheet_to_json(obj3);
 
-    console.log(obj2);
-
-    return;
     //complementando o ob1 com preço MO e tempo
 
     let dataObj1 = dataObj11.map((data, index) => {
